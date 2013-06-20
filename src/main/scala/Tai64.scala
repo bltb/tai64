@@ -67,16 +67,16 @@ object Tai64 {
     // date representation -- lossy!
 
     implicit class DateToTai(d: DateTime) {
-        def tai64: Tai64 = Tai64(tai64N.secs)
+        lazy val tai64: Tai64 = Tai64(tai64N.secs)
 
-        def tai64N: Tai64N = {
+        lazy val tai64N: Tai64N = {
             val delta = new Duration(BaseDate, d.plusSeconds(leapSecond(d)))
             Tai64N( delta.getStandardSeconds
                   , (delta.getMillis - delta.getStandardSeconds * 1000) * 1000000
                   )
         }
 
-        def tai64NA: Tai64NA = tai64N match {
+        lazy val tai64NA: Tai64NA = tai64N match {
             case Tai64N(secs, nanos) => Tai64NA(secs, nanos, 0)
         }
     }
