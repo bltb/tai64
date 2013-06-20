@@ -26,7 +26,7 @@ object Tai64 {
     }
 
     implicit class InfixExt[A : Ext](a: A) {
-        def hex: String = implicitly[Ext[A]].toHex(a)
+        lazy val hex: String = implicitly[Ext[A]].toHex(a)
     }
 
     implicit lazy
