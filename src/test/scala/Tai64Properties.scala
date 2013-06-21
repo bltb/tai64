@@ -26,7 +26,7 @@ object Tai64Properties extends Properties("Tai64") {
             case Tai64N(b) => b == a
         }}
 
-    property("Tai64NA: fromHex ̊̊∘ toHex ≡ id") =
+    property("Tai64NA: fromHex ∘ toHex ≡ id") =
         forAll(genTai64NA) { (a: Tai64NA) => a.hex match {
             case Tai64NA(b) => b == a
         }}
