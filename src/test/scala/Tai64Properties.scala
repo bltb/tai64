@@ -16,7 +16,7 @@ object Tai64Properties extends Properties("Tai64") {
                          attos <- posNum[Long]
                      } yield Tai64NA(secs, nanos, attos)
 
-    property("Tai64: fromHex ̊̊∘ toHex ≡ id") =
+    property("Tai64: fromHex ∘ toHex ≡ id") =
         forAll(genTai64) { (a: Tai64) => a.hex match {
             case Tai64(b) => b == a
         }}
