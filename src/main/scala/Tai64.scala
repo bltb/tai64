@@ -1,4 +1,4 @@
-object Tai64 {
+package object Tai64 {
 
     import scala.util.control.Exception._
     import java.lang.Long.{ parseLong, toHexString }
